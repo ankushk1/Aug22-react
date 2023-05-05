@@ -6,7 +6,8 @@ import StateComponent from "./Components/StateComponent";
 import NestedState from "./Components/NestedState";
 import PropsComp from "./Components/PropsComp";
 import ComponentA from "./Components/Context/ComponentA";
-import { createContext } from "react";
+import { createContext, useState } from "react";
+import UseEffect from "./Components/UseEffect";
 
 export const messageContext = createContext(null);
 messageContext.displayName = "message"
@@ -15,6 +16,8 @@ function App() {
   const randomFunc = () => {
     console.log("random func called");
   };
+  const [mount, setMount] = useState(true)
+
   return (
     <div id="app">
       {/* <Component1/> */}
@@ -53,9 +56,13 @@ function App() {
       >
         This is a string passed between comp tags
       </PropsComp> */}
-      <messageContext.Provider value=" Message coming from App.js">
+      {/* <messageContext.Provider value=" Message coming from App.js">
         <ComponentA />
-      </messageContext.Provider>
+      </messageContext.Provider> */}
+      {mount && <UseEffect/>}
+      <div>
+        <button onClick={() => setMount(!mount)}>Mount/Unmount</button>
+      </div>
     </div>
   );
 }
