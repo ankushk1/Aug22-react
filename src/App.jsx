@@ -8,6 +8,7 @@ import PropsComp from "./Components/PropsComp";
 import ComponentA from "./Components/Context/ComponentA";
 import { createContext, useState } from "react";
 import UseEffect from "./Components/UseEffect";
+import ApiComponent from "./Components/ApiComponent";
 
 export const messageContext = createContext(null);
 messageContext.displayName = "message"
@@ -59,10 +60,11 @@ function App() {
       {/* <messageContext.Provider value=" Message coming from App.js">
         <ComponentA />
       </messageContext.Provider> */}
-      {mount && <UseEffect/>}
+      {/* {mount && <UseEffect/>}
       <div>
         <button onClick={() => setMount(!mount)}>Mount/Unmount</button>
-      </div>
+      </div> */}
+      <ApiComponent/>
     </div>
   );
 }
