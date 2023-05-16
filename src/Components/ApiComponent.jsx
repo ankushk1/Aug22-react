@@ -16,6 +16,8 @@ const ApiComponent = () => {
       case "todos":
         return json.todos;
       //4th Case
+      case "carts":
+        return json.carts;
       default:
         return;
     }
@@ -90,6 +92,16 @@ const ApiComponent = () => {
           </div>
         );
       // 4th Case
+      case "carts":
+        return (
+          <div key={index} className="card my-2" style={{ width: "18rem" }}>
+            <div className="card-body">
+              <h5 className="card-title">{elem.title}</h5>
+              <p className="card-text">{elem.total}</p>
+              <h3 className="card-text">{elem.price}</h3>
+            </div>
+          </div>
+        );
       default:
         return;
     }
@@ -154,9 +166,17 @@ const ApiComponent = () => {
             onClick={() => setRoute("todos")}
             className={`${
               route === "todos" ? "btn btn-primary" : "btn-outline-primary"
-            } btn btn-lg`}
+            } btn btn-lg me-2`}
           >
             Todos
+          </button>
+          <button
+            onClick={() => setRoute("carts")}
+            className={`${
+              route === "carts" ? "btn btn-primary" : "btn-outline-primary"
+            } btn btn-lg`}
+          >
+            Carts
           </button>
         </div>
         {route === "products" && (
@@ -198,8 +218,17 @@ const ApiComponent = () => {
         <div className="mt-5 d-flex justify-content-around flex-wrap">
           {
             // apiData.length > 0 &&
-            apiData.slice(0, 10).map((elem, index) => onRenderData(elem, index))
+            route !== "carts" &&
+              apiData
+                .slice(0, 10)
+                .map((elem, index) => onRenderData(elem, index))
           }
+          {route === "carts" &&
+            apiData
+              .slice(0, 10)
+              .map((elem, index) =>
+                elem?.products?.map((prod) => onRenderData(prod))
+              )}
         </div>
       )}
     </div>

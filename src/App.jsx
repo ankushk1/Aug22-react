@@ -9,6 +9,7 @@ import ComponentA from "./Components/Context/ComponentA";
 import { createContext, useState } from "react";
 import UseEffect from "./Components/UseEffect";
 import ApiComponent from "./Components/ApiComponent";
+import FormComponent from "./Components/FormComponent";
 
 export const messageContext = createContext(null);
 messageContext.displayName = "message"
@@ -20,7 +21,7 @@ function App() {
   const [mount, setMount] = useState(true)
 
   return (
-    <div id="app">
+    <div id="app" >
       {/* <Component1/> */}
       {/* <StateComponent/> */}
       {/* <NestedState/> */}
@@ -64,7 +65,8 @@ function App() {
       <div>
         <button onClick={() => setMount(!mount)}>Mount/Unmount</button>
       </div> */}
-      <ApiComponent/>
+      {/* <ApiComponent/> */}
+      <FormComponent/>
     </div>
   );
 }
