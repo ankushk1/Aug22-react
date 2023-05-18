@@ -1,50 +1,53 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useFetch } from "../CustomHooks/CustomHooks";
 
 const ApiComponent = () => {
-  const [apiData, setApiData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [apiData, setApiData] = useState([]);
+  // const [loading, setLoading] = useState(false);
   const [route, setRoute] = useState("products");
   const [sort, setSort] = useState(true);
 
-  const getApiData = (json) => {
-    switch (route) {
-      case "products":
-        return json.products;
-      case "users":
-        return json.users;
-      case "todos":
-        return json.todos;
-      //4th Case
-      case "carts":
-        return json.carts;
-      default:
-        return;
-    }
-  };
+  // const getApiData = (json) => {
+  //   switch (route) {
+  //     case "products":
+  //       return json.products;
+  //     case "users":
+  //       return json.users;
+  //     case "todos":
+  //       return json.todos;
+  //     //4th Case
+  //     case "carts":
+  //       return json.carts;
+  //     default:
+  //       return;
+  //   }
+  // };
 
-  const fetchData = async () => {
-    setLoading(true);
-    const data = await fetch(`https://dummyjson.com/${route}`);
-    const json = await data.json();
-    setApiData(getApiData(json));
-    setLoading(false);
-  };
+  // const fetchData = async () => {
+  //   setLoading(true);
+  //   const data = await fetch(`https://dummyjson.com/${route}`);
+  //   const json = await data.json();
+  //   setApiData(getApiData(json));
+  //   setLoading(false);
+  // };
 
-  console.log(apiData);
-  useEffect(() => {
-    // // fetch("https://dummyjson.com/products")
-    // //   .then((res) => res.json())
-    // //   .then((json) => setApiData(json.products));
+  // console.log(apiData);
+  // useEffect(() => {
+  //   // // fetch("https://dummyjson.com/products")
+  //   // //   .then((res) => res.json())
+  //   // //   .then((json) => setApiData(json.products));
 
-    // (async () => {
-    //   const data = await fetch("https://dummyjson.com/products");
-    //   const json = await data.json();
-    //   setApiData(json.products);
-    // })();
+  //   // (async () => {
+  //   //   const data = await fetch("https://dummyjson.com/products");
+  //   //   const json = await data.json();
+  //   //   setApiData(json.products);
+  //   // })();
 
-    fetchData();
-  }, [route]);
+  //   fetchData();
+  // }, [route]);
+
+  const { loading, apiData } = useFetch("https://dummyjson.com", route);
 
   const onRenderData = (elem, index) => {
     switch (route) {

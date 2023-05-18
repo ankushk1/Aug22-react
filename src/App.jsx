@@ -10,6 +10,9 @@ import { createContext, useState } from "react";
 import UseEffect from "./Components/UseEffect";
 import ApiComponent from "./Components/ApiComponent";
 import FormComponent from "./Components/FormComponent";
+import Signin from "./Components/Signin";
+import TodosComp from "./Components/TodosComp";
+import LighDarkMode from "./Components/LighDarkMode";
 
 export const messageContext = createContext(null);
 messageContext.displayName = "message"
@@ -66,7 +69,11 @@ function App() {
         <button onClick={() => setMount(!mount)}>Mount/Unmount</button>
       </div> */}
       {/* <ApiComponent/> */}
-      <FormComponent/>
+      {/* <FormComponent/> */}
+      {/* <Signin/> */}
+      {/* <TodosComp/> */}
+
+      <LighDarkMode/>
     </div>
   );
 }

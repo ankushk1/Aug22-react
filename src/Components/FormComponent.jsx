@@ -1,20 +1,23 @@
 import React, { useState } from "react";
+import { useForm } from "../CustomHooks/CustomHooks";
 
 const FormComponent = () => {
-  const [userInfo, setUserInfo] = useState({
-    firstName: "",
-    lastName: "",
-    password: "",
-    isActive: false
-  });
+  // const [userInfo, setUserInfo] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   password: "",
+  //   isActive: false
+  // });
 
-  const onHandleInputChnage = (e) => {
-    if (e.target.type === "checkbox") {
-      setUserInfo({ ...userInfo, [e.target.name]: e.target.checked });
-      return;
-    }
-    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
-  };
+  // const onHandleInputChnage = (e) => {
+  //   if (e.target.type === "checkbox") {
+  //     setUserInfo({ ...userInfo, [e.target.name]: e.target.checked });
+  //     return;
+  //   }
+  //   setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+  // };
+
+  const { inputValues, onHandleInputChnage } = useForm();
 
   return (
     <div>
@@ -23,21 +26,21 @@ const FormComponent = () => {
         <input
           type="text"
           className="form-control w-50 my-2"
-          value={userInfo.firstName}
+          value={inputValues.firstName}
           name="firstName"
           onChange={(e) => onHandleInputChnage(e)}
         />
         <input
           type="text"
           className="form-control w-50 my-2"
-          value={userInfo.lastName}
+          value={inputValues.lastName}
           name="lastName"
           onChange={(e) => onHandleInputChnage(e)}
         />
         <input
           type="password"
           className="form-control w-50 my-2"
-          value={userInfo.password}
+          value={inputValues.password}
           name="password"
           onChange={(e) => onHandleInputChnage(e)}
         />
@@ -45,7 +48,7 @@ const FormComponent = () => {
           <input
             className="form-check-input"
             type="checkbox"
-            value={userInfo.isActive}
+            value={inputValues.isActive}
             id="flexCheckDefault"
             onChange={(e) => onHandleInputChnage(e)}
             name="isActive"
@@ -57,13 +60,13 @@ const FormComponent = () => {
       </form>
 
       <div>
-        FirstName - {userInfo.firstName}
+        FirstName - {inputValues.firstName}
         <br />
-        LastName - {userInfo.lastName}
+        LastName - {inputValues.lastName}
         <br />
-        Password - {userInfo.password}
+        Password - {inputValues.password}
         <br />
-        isActive - {String(userInfo.isActive)}
+        isActive - {String(inputValues.isActive)}
       </div>
     </div>
   );
