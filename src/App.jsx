@@ -13,6 +13,9 @@ import FormComponent from "./Components/FormComponent";
 import Signin from "./Components/Signin";
 import TodosComp from "./Components/TodosComp";
 import LighDarkMode from "./Components/LighDarkMode";
+import UseMemoHook from "./Components/UseMemoHook";
+import UseCallbackHook from "./Components/UseCallbackHook";
+import Todo from "./Components/Todo";
 
 export const messageContext = createContext(null);
 messageContext.displayName = "message"
@@ -72,8 +75,10 @@ function App() {
       {/* <FormComponent/> */}
       {/* <Signin/> */}
       {/* <TodosComp/> */}
-
-      <LighDarkMode/>
+      {/* <LighDarkMode/> */}
+      {/* <UseMemoHook/> */}
+      {/* <UseCallbackHook/> */}
+      <Todo/>
     </div>
   );
 }
