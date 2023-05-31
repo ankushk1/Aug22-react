@@ -15,7 +15,7 @@ import TodosComp from "./Components/TodosComp";
 import LighDarkMode from "./Components/LighDarkMode";
 import UseMemoHook from "./Components/UseMemoHook";
 import UseCallbackHook from "./Components/UseCallbackHook";
-import Todo from "./Components/Todo";
+import Todo from "./Components/TodoApp/Todo";
 
 export const messageContext = createContext(null);
 messageContext.displayName = "message"
