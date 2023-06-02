@@ -16,6 +16,8 @@ import LighDarkMode from "./Components/LighDarkMode";
 import UseMemoHook from "./Components/UseMemoHook";
 import UseCallbackHook from "./Components/UseCallbackHook";
 import Todo from "./Components/TodoApp/Todo";
+import Count from "./Components/HOC/Count";
+import Hover from "./Components/HOC/Hover";
 
 export const messageContext = createContext(null);
 messageContext.displayName = "message"
@@ -78,7 +80,9 @@ function App() {
       {/* <LighDarkMode/> */}
       {/* <UseMemoHook/> */}
       {/* <UseCallbackHook/> */}
-      <Todo/>
+      {/* <Todo/> */}
+      {/* <Count name={"ABC"} />
+      <Hover/> */}
     </div>
   );
 }
