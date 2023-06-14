@@ -11,10 +11,7 @@ const NavigateComp = () => {
 
     // Api calls
 
-   
-    navigate("/about" , {
-      state: { some: "value" }
-    });
+    navigate(-1);
   };
 
   return (
